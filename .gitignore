@@ -97,3 +97,7 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+Assets/_GAME/Scenes/Game/Lightmap-1_comp_light.exr
+Assets/_GAME/Scenes/Game/ReflectionProbe-0.exr
+Assets/CartoonTracksPack1/Track1/Textures/road.psd
+Assets/CartoonTracksPack1/Track1/Textures/road_normal.png
