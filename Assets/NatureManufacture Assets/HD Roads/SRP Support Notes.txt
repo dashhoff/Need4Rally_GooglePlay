@@ -1,0 +1,19 @@
+
+Materials will look pink in URP and HDRP projects after importing this asset because URP and HDRP require render pipeline specific materials / shaders.
+
+SRP Support packages are included for both URP and HDRP projects. 
+
+These packages are located in /Assets/NatureManufacture/HD Roads/SRP Support/
+
+Please import the package that matches best the URP or HDRP version in your project. New URP and HDRP packages are released when there are critical updates.
+
+For HDRP projects it is important to first remove the below two shaders
+
+/Assets/NatureManufacture/HD Roads/shaders/Standard_Metallic_Road_Shader_Parallax
+/Assets/NatureManufacture/HD Roads/shaders/Standard_Metallic_Cross_Road_Shader_Parallax
+
+Please contact us should you have questions:
+
+Forum: http://forum.unity3d.com/threads/easyroads3d-v3-the-upcoming-new-road-system.229327/
+Website: http://www.easyroads3d.com
+Support: info@easyroads3d.com
