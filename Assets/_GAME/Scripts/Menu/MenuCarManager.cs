@@ -9,6 +9,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
+using UnityEngine.UIElements.Experimental;
 
 public class MenuCarManager : MonoBehaviour
 {
@@ -16,15 +18,21 @@ public class MenuCarManager : MonoBehaviour
     [SerializeField] private int _currentCar;
 
     [SerializeField] private GameObject _playButton;
+    [SerializeField] private GameObject _buyCarButton;
+    [SerializeField] private TMP_Text _currentCarPriceText;
     [SerializeField] private Image _lockImage;
     
     [SerializeField] private TMP_Text _currentCarNameText;
     [SerializeField] private TMP_Text _currentCarInfoText;
     
-    [SerializeField] private TMP_Text _currentCarPriceText;
-    [SerializeField] private GameObject _buyCarButton;
-    
     [SerializeField] private UIPanel _errorPanel;
+    
+    [Header("Animation")]
+    [SerializeField] private float _animSpeedToStartScale = 0.25f;
+    [SerializeField] private float _animSpeedToZeroScale = 0.25f;
+    
+    [SerializeField] private Ease _easeToStartScale = Ease.InOutBack;
+    [SerializeField] private Ease _easeToZeroScale = Ease.InOutBack;
 
     public void Init()
     {
@@ -35,7 +43,7 @@ public class MenuCarManager : MonoBehaviour
         TrySelectCar();
     }
     
-    public void LeftArrow()
+    public void PreviousCar()
     {
         _currentCar--;
         
@@ -47,7 +55,7 @@ public class MenuCarManager : MonoBehaviour
         TrySelectCar();
     }
     
-    public void RightArrow()
+    public void NextCar()
     {
         _currentCar++;
         
@@ -61,10 +69,37 @@ public class MenuCarManager : MonoBehaviour
 
     public void SetActiveCar()
     {
-        for (int i = 0; i < _cars.Length; i++)
+        if (_currentCar - 1 >= 0)
+            CarAnimation(false, _cars[_currentCar - 1]);
+        else
+            CarAnimation(false, _cars[_cars.Length - 1]);
+        
+        if (_currentCar + 1 <= _cars.Length - 1)
+            CarAnimation(false, _cars[_currentCar + 1]);
+        else
+            CarAnimation(false, _cars[0]);
+        
+        CarAnimation(true, _cars[_currentCar]); 
+        
+        Debug.Log("CurrentCar :" + _currentCar);
+        
+        /*for (int i = 0; i < _cars.Length; i++)
         {
             _cars[i].Model.SetActive(i == _currentCar);
+        }*/
+    }
+
+    private void CarAnimation(bool active, MenuCar car)
+    {
+        Sequence animation = DOTween.Sequence();
+
+        if (active)
+        {
+            car.Model.SetActive(true);
+            animation.SetEase(_easeToStartScale).Append(car.Model.transform.DOScale(car.StartScale, 0.5f));
         }
+        else
+            animation.SetEase(_easeToZeroScale).Append(car.Model.transform.DOScale(new Vector3(0,0,0), 0.5f));
     }
 
     public void SetTextInfo()

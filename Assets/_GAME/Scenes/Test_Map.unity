@@ -12307,7 +12307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 177638, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11439282, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_MatchWidthOrHeight
@@ -12315,11 +12315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11439282, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_ReferenceResolution.x
-      value: 3840
+      value: 2880
       objectReference: {fileID: 0}
     - target: {fileID: 11439282, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_ReferenceResolution.y
-      value: 2160
+      value: 1620
       objectReference: {fileID: 0}
     - target: {fileID: 22323726, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_VertexColorAlwaysGammaSpace
@@ -18837,7 +18837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11815f35f2bf6ba48bc5c305628f35e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Car: {fileID: 0}
+  Car: {fileID: 548697727}
   AccelerationInput: 0
   TurnInput: 0
 --- !u!1 &1425957760
@@ -18945,29 +18945,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cars:
-  - {fileID: 0}
   - {fileID: 548697727}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  CurrentCar: {fileID: 0}
+  CurrentCar: {fileID: 548697727}
   _cameras:
   - {fileID: 1801940666}
   - {fileID: 873657035}
@@ -26085,7 +26064,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941088096}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec9414ff603f5494eb20ffb03da89a0f, type: 3}
   m_Name: 
@@ -27262,8 +27241,8 @@ MonoBehaviour:
   _musicSlider: {fileID: 1219719335}
   _generalGraphicSlider: {fileID: 1903140428}
   _universalRenderPipelineAssets:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 36b733952e0fe71469f6a025cf1e91e8, type: 2}
+  - {fileID: 11400000, guid: aee8403463a1a6248b2bd899c6876439, type: 2}
   _automaticGearToggle: {fileID: 1622898507}
   _turningSpeedSlider: {fileID: 574595789}
 --- !u!4 &2049723526

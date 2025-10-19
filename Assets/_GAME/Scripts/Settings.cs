@@ -51,6 +51,7 @@ public class Settings : MonoBehaviour
         _musicBus = RuntimeManager.GetBus("bus:/Music");
 
         _generalGraphicSlider.maxValue = _universalRenderPipelineAssets.Length - 1;
+        _generalGraphicSlider.value = SettingsSaves.GraphicsPreset;
     }
 
     public void OnGeneralSliderChanged()
@@ -109,17 +110,18 @@ public class Settings : MonoBehaviour
     
     public void OnGeneralGraphicSliderChanged()
     {
-        int presetIndex =  Mathf.RoundToInt(_universalRenderPipelineAssets.Length / 2);
-
-        SettingsSaves.GraphicsPreset = presetIndex;
-        SettingsSaves.MainSave();
-
-        UniversalRenderPipelineAsset selectedAsset = _universalRenderPipelineAssets[presetIndex];
-        QualitySettings.renderPipeline = selectedAsset;
+        int presetIndex =  Mathf.RoundToInt(_generalGraphicSlider.value);
         
-        //QualitySettings.SetQualityLevel(SettingsSaves.GraphicsPreset);
-        
-        Debug.Log("Пресет графики: " + _universalRenderPipelineAssets[presetIndex]);
+        if (presetIndex >= 0 && presetIndex < _universalRenderPipelineAssets.Length)
+        {
+            SettingsSaves.GraphicsPreset = presetIndex;
+            SettingsSaves.MainSave();
+            
+            UniversalRenderPipelineAsset selectedAsset = _universalRenderPipelineAssets[presetIndex];
+            QualitySettings.renderPipeline = selectedAsset;
+
+            Debug.Log("Пресет графики: " + selectedAsset.name);
+        }
     }
     
     public void OnAutomaticGearToggleChanged()

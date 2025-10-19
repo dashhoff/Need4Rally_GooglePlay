@@ -18,4 +18,7 @@ public class MenuCar : MonoBehaviour
     [TextArea(1, 5)] public string CarEnInfo;
 
     public int Price;
+    
+    [Header("Animations")]
+    public Vector3 StartScale = new Vector3(1,1,1);
 }
