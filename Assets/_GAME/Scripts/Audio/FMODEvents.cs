@@ -16,6 +16,7 @@ public class FMODEvents : MonoBehaviour
     [Header("UI")]
     public EventReference ButtonHover;
     public EventReference ButtonClick;
+    public EventReference Woosh;
     
     [Header("SFX")]
     public EventReference Logo;

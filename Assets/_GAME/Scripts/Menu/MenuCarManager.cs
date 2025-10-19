@@ -6,11 +6,11 @@
  *========================================================================
  */
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
-using UnityEngine.UIElements.Experimental;
 
 public class MenuCarManager : MonoBehaviour
 {
@@ -34,11 +34,13 @@ public class MenuCarManager : MonoBehaviour
     [SerializeField] private Ease _easeToStartScale = Ease.InOutBack;
     [SerializeField] private Ease _easeToZeroScale = Ease.InOutBack;
 
+    public static Action OnSelectCar;
+
     public void Init()
     {
         _currentCar = GameSaves.CurrentCar;
         
-        SetActiveCar();
+        CarAnimation(true, _cars[_currentCar]);
         SetTextInfo();
         TrySelectCar();
     }
@@ -79,7 +81,9 @@ public class MenuCarManager : MonoBehaviour
         else
             CarAnimation(false, _cars[0]);
         
-        CarAnimation(true, _cars[_currentCar]); 
+        CarAnimation(true, _cars[_currentCar]);
+
+        OnSelectCar?.Invoke();
         
         Debug.Log("CurrentCar :" + _currentCar);
         

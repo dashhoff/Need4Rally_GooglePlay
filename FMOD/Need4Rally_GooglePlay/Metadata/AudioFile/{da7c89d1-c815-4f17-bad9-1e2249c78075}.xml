@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{da7c89d1-c815-4f17-bad9-1e2249c78075}">
+		<property name="assetPath">
+			<value>Audio/Car/Engine/BMW_M3_GTR/nfs-bmw-m3-gtr-clean_2.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.2433333333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e3e5548-20d0-4f2c-9bf6-8c444ba4fc68}</destination>
+		</relationship>
+	</object>
+</objects>

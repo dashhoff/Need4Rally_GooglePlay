@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{916389df-abcc-4657-81a2-a11d800d2bd5}">
+		<property name="assetPath">
+			<value>Audio/Car/Inline/idle.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.685668934240363</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e3e5548-20d0-4f2c-9bf6-8c444ba4fc68}</destination>
+		</relationship>
+	</object>
+</objects>

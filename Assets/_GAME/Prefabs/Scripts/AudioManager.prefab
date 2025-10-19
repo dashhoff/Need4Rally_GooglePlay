@@ -58,6 +58,13 @@ MonoBehaviour:
       Data3: 1823314343
       Data4: -1584565587
     Path: event:/UI/ButtonClick
+  Woosh:
+    Guid:
+      Data1: 1263342152
+      Data2: 1137753486
+      Data3: 1698205835
+      Data4: 1847038307
+    Path: event:/UI/Woosh
   Logo:
     Guid:
       Data1: -283347580
@@ -74,11 +81,11 @@ MonoBehaviour:
     Path: event:/SFX/RaceStart
   Death:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1254544628
+      Data2: 1261264024
+      Data3: 363063451
+      Data4: 1260189077
+    Path: event:/SFX/RaceStart
   Finish:
     Guid:
       Data1: 0
@@ -93,13 +100,20 @@ MonoBehaviour:
       Data3: -2143889232
       Data4: 670200401
     Path: event:/Enviroment/Wind
-  Engine:
+  Engine_1:
     Guid:
-      Data1: -1352081812
-      Data2: 1187413819
-      Data3: -374298218
-      Data4: -965783726
-    Path: event:/Car/InlineEngine
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Engine_2:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   ShiftGearbox:
     Guid:
       Data1: -1899943118

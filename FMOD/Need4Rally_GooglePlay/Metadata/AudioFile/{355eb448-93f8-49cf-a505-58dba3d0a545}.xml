@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{355eb448-93f8-49cf-a505-58dba3d0a545}">
+		<property name="assetPath">
+			<value>Audio/Car/ExhaustShots/Exhaust shot_3.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.056</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e3e5548-20d0-4f2c-9bf6-8c444ba4fc68}</destination>
+		</relationship>
+	</object>
+</objects>
