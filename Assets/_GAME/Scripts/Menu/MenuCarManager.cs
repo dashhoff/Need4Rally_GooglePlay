@@ -2,7 +2,6 @@
  *========================================================================
  *    https://github.com/dashhoff
  *    The game is made by prismatic hat studio
- *    https://github.com/dashhoff
  *========================================================================
  */
 
@@ -22,8 +21,10 @@ public class MenuCarManager : MonoBehaviour
     [SerializeField] private TMP_Text _currentCarPriceText;
     [SerializeField] private Image _lockImage;
     
-    [SerializeField] private TMP_Text _currentCarNameText;
+    [SerializeField] private TextAnimator _currentCarNameText;
+    [SerializeField] private float _carNameTextAnimDuration = 0.5f;
     [SerializeField] private TMP_Text _currentCarInfoText;
+    [SerializeField] private float _carInfoTextAnimDuration = 0.5f;
     
     [SerializeField] private UIPanel _errorPanel;
     
@@ -92,23 +93,11 @@ public class MenuCarManager : MonoBehaviour
             _cars[i].Model.SetActive(i == _currentCar);
         }*/
     }
-
-    private void CarAnimation(bool active, MenuCar car)
-    {
-        Sequence animation = DOTween.Sequence();
-
-        if (active)
-        {
-            car.Model.SetActive(true);
-            animation.SetEase(_easeToStartScale).Append(car.Model.transform.DOScale(car.StartScale, 0.5f));
-        }
-        else
-            animation.SetEase(_easeToZeroScale).Append(car.Model.transform.DOScale(new Vector3(0,0,0), 0.5f));
-    }
-
+    
     public void SetTextInfo()
     {
-        _currentCarNameText.text = _cars[_currentCar].CarName;
+        _currentCarNameText.TextAnim(_cars[_currentCar].CarName, 0.5f);
+        _currentCarInfoText.text = _cars[_currentCar].CarEnInfo;
         
         /*if (YandexGame.lang == "ru")
             _currentCarPriceText.text = "стоимость: " + _cars[_currentCar].Price;
@@ -125,21 +114,25 @@ public class MenuCarManager : MonoBehaviour
     {
         if (GameSaves.OpenCars[_currentCar] == 1)
         {
-            _lockImage.gameObject.SetActive(true);
+            //_lockImage.gameObject.SetActive(true);
             _playButton.SetActive(false);
             
             _currentCarPriceText.gameObject.SetActive(false);
             _buyCarButton.SetActive(false);
             
+            LockAnim(false);
+            
             GameSaves.CurrentCar = _currentCar;
         }
         else
         {
-            _lockImage.gameObject.SetActive(false);
+            //_lockImage.gameObject.SetActive(false);
             _playButton.SetActive(true);
             
             _currentCarPriceText.gameObject.SetActive(true);
             _buyCarButton.SetActive(true);
+            
+            LockAnim(true);
         }
     }
 
@@ -161,5 +154,32 @@ public class MenuCarManager : MonoBehaviour
         
         SetTextInfo();
         TrySelectCar();
+    }
+    
+    private void CarAnimation(bool active, MenuCar car)
+    {
+        Sequence animation = DOTween.Sequence();
+
+        if (active)
+        {
+            car.Model.SetActive(true);
+            animation.SetEase(_easeToStartScale)
+                .SetUpdate(true)
+                .Append(car.Model.transform.DOScale(car.StartScale, 0.5f));
+        }
+        else
+            animation.SetEase(_easeToZeroScale)
+                .SetUpdate(true)
+                .Append(car.Model.transform.DOScale(new Vector3(0,0,0), 0.5f));
+    }
+
+    private void LockAnim(bool active)
+    {
+        Sequence animation = DOTween.Sequence();
+        
+        if (active)
+            animation.SetUpdate(true).Append(_lockImage.DOFade(0.5f, 0.3f));
+        else
+            animation.SetUpdate(true).Append(_lockImage.DOFade(0, 0.3f));
     }
 }

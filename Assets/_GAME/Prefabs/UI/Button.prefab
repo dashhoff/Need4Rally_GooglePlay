@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: free riding
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 951eb38e9209944469f13d86d181f46a, type: 2}
-  m_sharedMaterial: {fileID: 6160001848231160060, guid: 951eb38e9209944469f13d86d181f46a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 33eddfbb4befa3845b9391f774208bd3, type: 2}
+  m_sharedMaterial: {fileID: -185480674402705211, guid: 33eddfbb4befa3845b9391f774208bd3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -356,7 +356,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _durationToEnd: 0.2
   _durationToStart: 0.2
+  _clickAnim: 1
+  _clickAnimScale: {x: 1.15, y: 1.15, z: 1.15}
+  _clickAnimToEndDuration: 0.2
+  _clickAnimInterval: 0
+  _clickAnimToStartDuration: 0.2
+  _clickAnimEase: 28
   _scale: 1
+  _startScale: {x: 0, y: 0, z: 0}
   _endScale: {x: 1.1, y: 1.1, z: 1.1}
   _shine: 1
   _shineImage: {fileID: 4939706557807344590}

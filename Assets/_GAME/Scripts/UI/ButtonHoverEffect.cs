@@ -1,17 +1,34 @@
+/*
+ *========================================================================
+ *    https://github.com/dashhoff
+ *    The game is made by prismatic hat studio
+ *========================================================================
+ */
+
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Sequence = DG.Tweening.Sequence;
 
 public class ButtonHoverEffect : MonoBehaviour
 {
     [SerializeField] private float _durationToEnd = 0.2f;
     [SerializeField] private float _durationToStart = 0.2f;
 
+    [Header("ClickAnim")] 
+    [SerializeField] private bool _clickAnim = true;
+    [SerializeField] private Vector3 _clickAnimScale = new Vector3(1.15f, 1.15f, 1.15f);
+    [SerializeField] private float _clickAnimToEndDuration = 0.2f;
+    [SerializeField] private float _clickAnimInterval = 0f;
+    [SerializeField] private float _clickAnimToStartDuration = 0.2f;
+    [SerializeField] private Ease _clickAnimEase = Ease.OutBack; 
+    
     [Header("SCALE")]
     [SerializeField] private bool _scale;
-    private Vector3 _startScale;
+    [SerializeField] private Vector3 _startScale = new Vector3(1, 1, 1);
     [SerializeField] private Vector3 _endScale = new Vector3(1.1f, 1.1f, 1.1f);
 
     [Header("SHINE")]
@@ -39,6 +56,8 @@ public class ButtonHoverEffect : MonoBehaviour
     public void OnPointerEnter(PointerEventData eventData) => PointerEnter();
 
     public void OnPointerExit(PointerEventData eventData) => PointerExit();
+    
+    public void OnButtonClick() => ClickAnim();
 
     public void PointerEnter()
     {
@@ -104,5 +123,18 @@ public class ButtonHoverEffect : MonoBehaviour
     public void ClickSound()
     {
         AudioManager.Instance.PlayOneShot(FMODEvents.Instance.ButtonClick, gameObject.transform.position);
+    }
+
+    public void ClickAnim()
+    {
+        if (!_clickAnim) return;
+
+        Sequence clickAnim = DOTween.Sequence();
+
+        clickAnim.SetEase(_clickAnimEase)
+            .SetUpdate(true)
+            .Append(gameObject.transform.DOScale(_clickAnimScale, _durationToEnd))
+            .AppendInterval(_clickAnimInterval)
+            .Append(gameObject.transform.DOScale(_endScale, _durationToStart));
     }
 }
